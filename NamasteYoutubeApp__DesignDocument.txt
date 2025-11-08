@@ -1,0 +1,8 @@
+
+Tools :-
+ vite: npm create vite@latest
+
+Tech stack :-
+ react
+
+config files :-
