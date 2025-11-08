@@ -10,3 +10,16 @@ config files :-
  .nvmrc  : it consists Node version.
  .gitignore: git will ignore mentioned paths.
  .gitattributes:  git configurations
+
+
+
+App structure:-
+Header
+Body
+ -> Sidebar - MenuItems
+ -> MainContainer - ButtonsList, VideoContainer(VideoCard)
+
+
+
+
+// rafc - shortcut generates react component in file
