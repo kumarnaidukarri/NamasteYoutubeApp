@@ -6,3 +6,7 @@ Tech stack :-
  react
 
 config files :-
+ .vscode : this folder contains vscode settings for specific project
+ .nvmrc  : it consists Node version.
+ .gitignore: git will ignore mentioned paths.
+ .gitattributes:  git configurations
