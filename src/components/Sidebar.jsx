@@ -1,7 +1,7 @@
 // Sidebar component contains nav items.
 
 import { useSelector } from "react-redux";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((appStore) => appStore.sidebarMenu.isMenuOpen); // hook to Subscribe the store

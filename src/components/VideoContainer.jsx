@@ -1,6 +1,6 @@
 // VideoContainer component contains video cards.
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 import { YOUTUBE_VIDEOS_API_URL } from "../utils/constants.js";
 import VideoCard from "./VideoCard.jsx";

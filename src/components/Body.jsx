@@ -1,7 +1,7 @@
 // Body component
 // it contains Sidebar, Main container
 
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 
 import Sidebar from "./Sidebar.jsx";
 // import MainContainer from "./MainContainer.jsx";

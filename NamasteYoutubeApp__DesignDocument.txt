@@ -3,7 +3,9 @@ Tools :-
  vite: npm create vite@latest
 
 Tech stack :-
- react, redux, @reduxjs/toolkit, react-router
+ react, redux, @reduxjs/toolkit, react-router, react-router-dom
+
+ note: 'react-router-dom' library is especially used for Web Applications Routing.
 
 Config files :-
  .vscode : this folder contains vscode settings for specific project

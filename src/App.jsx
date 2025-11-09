@@ -2,7 +2,7 @@
 // it is entry point.
 
 // Library imports
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./app.css";
 
 // My Components imports
