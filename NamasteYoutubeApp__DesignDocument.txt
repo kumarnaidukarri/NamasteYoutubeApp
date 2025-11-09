@@ -20,6 +20,4 @@ Body
  -> MainContainer - ButtonsList, VideoContainer(VideoCard)
 
 
-
-
 // rafc - shortcut generates react component in file
