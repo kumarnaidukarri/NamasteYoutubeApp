@@ -3,7 +3,7 @@ Tools :-
  vite: npm create vite@latest
 
 Tech stack :-
- react
+ react, redux, @reduxjs/toolkit
 
 Config files :-
  .vscode : this folder contains vscode settings for specific project
