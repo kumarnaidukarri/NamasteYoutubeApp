@@ -20,7 +20,7 @@ const Header = () => {
           src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-4.png"
           onClick={() => toggleMenuHandler()}
         />
-        <a href="./">
+        <a href="/">
           <img
             alt="youtube-logo"
             className="h-8 mx-2"

@@ -1,5 +1,6 @@
 // VideoContainer component contains video cards.
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 import { YOUTUBE_VIDEOS_API_URL } from "../utils/constants.js";
 import VideoCard from "./VideoCard.jsx";
@@ -29,7 +30,9 @@ const VideoContainer = () => {
     <div className="video-container  flex flex-wrap">
       {/* render list of videos cards */}
       {videos.map((video) => (
-        <VideoCard info={video} key={video.id} />
+        <Link to={"/watch?v=" + video.id} key={video.id}>
+          <VideoCard info={video} />
+        </Link>
       ))}
     </div>
   );
