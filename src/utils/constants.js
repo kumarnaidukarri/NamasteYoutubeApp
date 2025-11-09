@@ -12,7 +12,16 @@ YOUTUBE_VIDEOS_API =
 const YOUTUBE_API_KEY = "AIzaSyBDG532u_1wbeNVh1d81e0bJfE99QOFxDw";
 
 const YOUTUBE_VIDEOS_API_URL =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=" +
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=" +
   YOUTUBE_API_KEY;
 
 export { YOUTUBE_VIDEOS_API_URL };
+
+// read more: https://developers.google.com/youtube/v3/docs/videos/list
+/*
+look for query parameters and add to your Youtube API URL to get customized results.
+Query parameters:
+    maxResults = 1 - 50
+    myRating = 'like' 'dislike'
+    regionCode = 'IN' 'US'
+*/
