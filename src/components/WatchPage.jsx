@@ -1,7 +1,35 @@
 // 'WatchPage' component to watch a video
 
+import { useEffect } from "react";
+import { useParams, useSearchParams } from "react-router";
+
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../utils/store/sidebarMenuSlice"; // reducer function
+
 const WatchPage = () => {
-  return <div> Watch Page </div>;
+  const [searchParams] = useSearchParams(); // hook
+  console.log(searchParams.get("v")); // http://localhost:5173/watch?v=2W7z4SB8Vy8  --> ?v = 2W7z4SB8Vy8
+
+  const dispatch = useDispatch(); // hook
+
+  useEffect(() => {
+    dispatch(closeMenu()); // dispatches an action
+  }, []);
+
+  return (
+    <div className="Watch-Page  px-5">
+      <iframe
+        width="1200"
+        height="600"
+        src={"https://www.youtube.com/embed/" + searchParams.get("v")}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
 };
 
 export default WatchPage;
