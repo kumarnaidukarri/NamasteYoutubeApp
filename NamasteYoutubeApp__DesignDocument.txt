@@ -3,7 +3,7 @@ Tools :-
  vite: npm create vite@latest
 
 Tech stack :-
- react, redux, @reduxjs/toolkit
+ react, redux, @reduxjs/toolkit, react-router
 
 Config files :-
  .vscode : this folder contains vscode settings for specific project
@@ -19,6 +19,7 @@ Body
  -> Sidebar       - MenuItems
  -> MainContainer - ButtonsList, VideoContainer(VideoCard)
 
+ -> WatchPage
 
 // rafc - shortcut generates react component in file
 
