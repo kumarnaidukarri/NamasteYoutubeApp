@@ -1,3 +1,5 @@
+// Sidebar component contains nav items.
+
 const Sidebar = () => {
   return (
     <div className="w-48 p-5 shadow-lg">

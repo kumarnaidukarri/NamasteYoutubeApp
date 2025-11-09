@@ -1,4 +1,5 @@
-// Header Component
+// Header component
+// it contains Hamberger Menuicon button, SearchBar, User icon
 
 const Header = () => {
   return (

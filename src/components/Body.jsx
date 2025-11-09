@@ -1,7 +1,8 @@
-// body -> sidebar, main container
+// Body component
+// it contains Sidebar, Main container
 
-import MainContainer from "./MainContainer.jsx";
 import Sidebar from "./Sidebar.jsx";
+import MainContainer from "./MainContainer.jsx";
 
 const Body = () => {
   return (
