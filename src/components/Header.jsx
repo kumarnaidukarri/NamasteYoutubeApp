@@ -1,20 +1,32 @@
 // Header component
 // it contains Hamberger Menuicon button, SearchBar, User icon
 
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/store/sidebarMenuSlice.js";
+
 const Header = () => {
+  const dispatch = useDispatch(); // hook to dispatch an action
+
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  }; // menu switches open, close
+
   return (
     <div className="grid grid-flow-col  m-2 p-5 shadow-lg">
       <div className="left-container  col-span-1 flex">
         <img
-          alt="hamberger-menu"
-          className="h-8"
+          alt="Hamberger-menu"
+          className="h-8 cursor-pointer"
           src="https://icons.veryicon.com/png/o/miscellaneous/linear-icon-45/hamburger-menu-4.png"
+          onClick={() => toggleMenuHandler()}
         />
-        <img
-          alt="youtube-logo"
-          className="h-8 mx-2"
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
-        />
+        <a href="./">
+          <img
+            alt="youtube-logo"
+            className="h-8 mx-2"
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+          />
+        </a>
       </div>
 
       <div className="middle-container  col-span-10 px-10">
