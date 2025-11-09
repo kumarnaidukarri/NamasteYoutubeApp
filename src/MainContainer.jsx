@@ -1,12 +1,13 @@
 // MainContainer -> ButtonList
 
-import ButtonList from "./ButtonList";
+import ButtonList from "./ButtonList.jsx";
+import VideoContainer from "./VideoContainer.jsx";
 
 const MainContainer = () => {
   return (
-    <div>
-      Main Container
+    <div className="">
       <ButtonList />
+      <VideoContainer />
     </div>
   );
 };

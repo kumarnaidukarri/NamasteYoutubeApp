@@ -5,7 +5,7 @@ Tools :-
 Tech stack :-
  react
 
-config files :-
+Config files :-
  .vscode : this folder contains vscode settings for specific project
  .nvmrc  : it consists Node version.
  .gitignore: git will ignore mentioned paths.
@@ -16,7 +16,7 @@ config files :-
 App structure:-
 Header
 Body
- -> Sidebar - MenuItems
+ -> Sidebar       - MenuItems
  -> MainContainer - ButtonsList, VideoContainer(VideoCard)
 
 

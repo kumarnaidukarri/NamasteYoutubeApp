@@ -2,8 +2,8 @@
 
 const Header = () => {
   return (
-    <div className="grid grid-flow-col m-2 p-5 shadow-lg">
-      <div className="left-container  flex col-span-1">
+    <div className="grid grid-flow-col  m-2 p-5 shadow-lg">
+      <div className="left-container  col-span-1 flex">
         <img
           alt="hamberger-menu"
           className="h-8"
@@ -15,16 +15,17 @@ const Header = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
         />
       </div>
+
       <div className="middle-container  col-span-10 px-10">
         <input
           type="text"
           className="w-1/2 border border-gray-400 rounded-l-full p-2"
         />
-        <button className="border border-gray-100 px-5 py-2 rounded-r-full">
-          {" "}
-          Search{" "}
+        <button className="border border-gray-400 px-5 py-2 rounded-r-full">
+          🔍
         </button>
       </div>
+
       <div className="right-container  col-span-1 ">
         <img
           alt="user icon"

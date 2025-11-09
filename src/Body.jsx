@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar.jsx";
 
 const Body = () => {
   return (
-    <div>
+    <div className="flex">
       <Sidebar />
       <MainContainer />
     </div>
