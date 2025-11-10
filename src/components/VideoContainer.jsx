@@ -29,10 +29,6 @@ const VideoContainer = () => {
 
   return (
     <div className="video-container  flex flex-wrap items-stretch">
-      <Link to={"/watch?v=" + videos[0].id} key={videos[0].id}>
-        <RedBorderVideoCard info={videos[0]} />
-      </Link>
-
       {/* render list of videos cards */}
       {videos.map((video) => (
         <Link to={"/watch?v=" + video.id} key={video.id}>

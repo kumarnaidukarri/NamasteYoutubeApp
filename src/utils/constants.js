@@ -15,7 +15,10 @@ const YOUTUBE_VIDEOS_API_URL =
   "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=" +
   YOUTUBE_API_KEY;
 
-export { YOUTUBE_VIDEOS_API_URL };
+const YOUTUBE_SEARCH_SUGGESTIONS_API =
+  "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=Query";
+
+export { YOUTUBE_VIDEOS_API_URL, YOUTUBE_SEARCH_SUGGESTIONS_API };
 
 // read more: https://developers.google.com/youtube/v3/docs/videos/list
 /*
