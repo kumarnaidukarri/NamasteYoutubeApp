@@ -19,7 +19,17 @@ const VideoCard = (props) => {
   );
 };
 
+// Higher Order Function. a function takes a component and returns an 'Enhanced Component'.
+const RedBorderVideoCard = (props) => {
+  return (
+    <div className="border border-red-600">
+      <VideoCard info={props.info} />
+    </div>
+  );
+};
+
 export default VideoCard;
+export { RedBorderVideoCard };
 
 // Example info data
 /*

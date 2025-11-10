@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { YOUTUBE_VIDEOS_API_URL } from "../utils/constants.js";
-import VideoCard from "./VideoCard.jsx";
+import VideoCard from "./VideoCard.jsx"; // normal VideoCard
+import { RedBorderVideoCard } from "./VideoCard.jsx"; // Enhanced VideoCard (HigherOrderComponent)
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]); // creates a local state variable
@@ -28,6 +29,10 @@ const VideoContainer = () => {
 
   return (
     <div className="video-container  flex flex-wrap items-stretch">
+      <Link to={"/watch?v=" + videos[0].id} key={videos[0].id}>
+        <RedBorderVideoCard info={videos[0]} />
+      </Link>
+
       {/* render list of videos cards */}
       {videos.map((video) => (
         <Link to={"/watch?v=" + video.id} key={video.id}>
