@@ -3,8 +3,30 @@
 
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/store/sidebarMenuSlice.js";
+import { useEffect, useState } from "react";
+
+import { YOUTUBE_SEARCH_SUGGESTIONS_API } from "../utils/constants.js";
 
 const Header = () => {
+  const [searchQuery, setSearchQuery] = useState(""); // local state variable
+
+  useEffect(() => {
+    //
+    console.log(searchQuery);
+
+    // API call
+    getSearchSuggestions();
+  }, [searchQuery]); // useEffect calls whenever 'searchQuery' state variable changes.
+
+  // Async func to get 'User Search Suggestion' data
+  const getSearchSuggestions = async () => {
+    const responseObj = await fetch(
+      YOUTUBE_SEARCH_SUGGESTIONS_API + searchQuery
+    );
+    const jsonData = await responseObj.json();
+    console.log(jsonData);
+  };
+
   const dispatch = useDispatch(); // hook to dispatch an action
 
   const toggleMenuHandler = () => {
@@ -33,6 +55,10 @@ const Header = () => {
         <input
           type="text"
           className="w-1/2 border border-gray-400 rounded-l-full p-2"
+          onChange={(event) => {
+            // Updates the state variable. components will re-renders.
+            setSearchQuery(event.target.value);
+          }}
         />
         <button className="border border-gray-400 px-5 py-2 rounded-r-full">
           🔍
@@ -51,3 +77,17 @@ const Header = () => {
 };
 
 export default Header;
+
+// user search suggest: iphone
+/*
+1) Without Debouncing
+* key - i
+  - render component
+  - useEffect()
+*  key - ip
+  - re-render component
+  - useEffect()
+*  key - iph
+  -  re-render component
+  - useEffect()
+*/

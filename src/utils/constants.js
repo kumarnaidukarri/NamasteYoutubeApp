@@ -16,7 +16,7 @@ const YOUTUBE_VIDEOS_API_URL =
   YOUTUBE_API_KEY;
 
 const YOUTUBE_SEARCH_SUGGESTIONS_API =
-  "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=Query";
+  "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=";
 
 export { YOUTUBE_VIDEOS_API_URL, YOUTUBE_SEARCH_SUGGESTIONS_API };
 
