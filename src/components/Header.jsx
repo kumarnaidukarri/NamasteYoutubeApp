@@ -9,13 +9,15 @@ import { YOUTUBE_SEARCH_SUGGESTIONS_API } from "../utils/constants.js";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState(""); // local state variable
+  const [suggestions, setSuggestions] = useState([]);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   // useEffect calls whenever 'searchQuery' state variable changes.
   useEffect(() => {
     // API call - make after every key press
     // but, if Difference between 2 API calls is lessthan 2000ms
     // Decline the API call
-    const timer = setTimeout(() => getSearchSuggestions(), 2000);
+    const timer = setTimeout(() => getSearchSuggestions(), 300);
 
     // cleanup func runs before 'Re-render'.
     return () => {
@@ -33,6 +35,8 @@ const Header = () => {
     );
     const jsonData = await responseObj.json();
     console.log(jsonData);
+
+    setSuggestions(jsonData[1]); // Updates state
   };
 
   const dispatch = useDispatch(); // hook to dispatch an action
@@ -68,36 +72,27 @@ const Header = () => {
               // Updates the state variable. components will re-renders.
               setSearchQuery(event.target.value);
             }}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setShowSuggestions(false)}
           />
           <button className="border border-gray-400 px-5 py-2 rounded-r-full">
             🔍
           </button>
         </div>
-        <div className="suggestion-container  fixed bg-white px-4 py-2 w-[37rem]">
-          <ul className="suggestion-list  ">
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone
-            </li>
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone 15
-            </li>
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone Pro
-            </li>
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone 15 Max
-            </li>
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone
-            </li>
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone
-            </li>
-            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
-              🔍 Iphone
-            </li>
-          </ul>
-        </div>
+        {showSuggestions && (
+          <div className="suggestion-container  fixed bg-white px-4 py-2 w-[37rem]">
+            <ul className="suggestion-list  ">
+              {suggestions.map((s, index) => (
+                <li
+                  className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100"
+                  key={index}
+                >
+                  🔍 {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="right-container  col-span-1 ">
