@@ -63,7 +63,7 @@ const Header = () => {
         </a>
       </div>
 
-      <div className="middle-container  col-span-10 px-10">
+      <div className="middle-container  col-span-10 px-10 relative">
         <div className="searchbar-container">
           <input
             type="text"
@@ -80,7 +80,7 @@ const Header = () => {
           </button>
         </div>
         {showSuggestions && (
-          <div className="suggestion-container  fixed bg-white px-4 py-2 w-[37rem]">
+          <div className="suggestion-container  bg-white px-4 py-2 w-[37rem] absolute">
             <ul className="suggestion-list  ">
               {suggestions.map((s, index) => (
                 <li
