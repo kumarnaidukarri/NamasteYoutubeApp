@@ -60,17 +60,44 @@ const Header = () => {
       </div>
 
       <div className="middle-container  col-span-10 px-10">
-        <input
-          type="text"
-          className="w-1/2 border border-gray-400 rounded-l-full p-2"
-          onChange={(event) => {
-            // Updates the state variable. components will re-renders.
-            setSearchQuery(event.target.value);
-          }}
-        />
-        <button className="border border-gray-400 px-5 py-2 rounded-r-full">
-          🔍
-        </button>
+        <div className="searchbar-container">
+          <input
+            type="text"
+            className="w-1/2 border border-gray-400 rounded-l-full p-2"
+            onChange={(event) => {
+              // Updates the state variable. components will re-renders.
+              setSearchQuery(event.target.value);
+            }}
+          />
+          <button className="border border-gray-400 px-5 py-2 rounded-r-full">
+            🔍
+          </button>
+        </div>
+        <div className="suggestion-container  fixed bg-white px-4 py-2 w-[37rem]">
+          <ul className="suggestion-list  ">
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone
+            </li>
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone 15
+            </li>
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone Pro
+            </li>
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone 15 Max
+            </li>
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone
+            </li>
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone
+            </li>
+            <li className="px-2 py-2 shadow-sm border border-gray-100 hover:bg-gray-100 ">
+              🔍 Iphone
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="right-container  col-span-1 ">
