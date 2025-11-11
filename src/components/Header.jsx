@@ -10,16 +10,24 @@ import { YOUTUBE_SEARCH_SUGGESTIONS_API } from "../utils/constants.js";
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState(""); // local state variable
 
+  // useEffect calls whenever 'searchQuery' state variable changes.
   useEffect(() => {
-    //
-    console.log(searchQuery);
+    // API call - make after every key press
+    // but, if Difference between 2 API calls is lessthan 2000ms
+    // Decline the API call
+    const timer = setTimeout(() => getSearchSuggestions(), 2000);
 
-    // API call
-    getSearchSuggestions();
-  }, [searchQuery]); // useEffect calls whenever 'searchQuery' state variable changes.
+    // cleanup func runs before 'Re-render'.
+    return () => {
+      // clears the timer
+      console.log("Cleanup fn executed. Timer is cleared");
+      clearTimeout(timer);
+    };
+  }, [searchQuery]);
 
   // Async func to get 'User Search Suggestion' data
   const getSearchSuggestions = async () => {
+    console.log("API call - " + searchQuery);
     const responseObj = await fetch(
       YOUTUBE_SEARCH_SUGGESTIONS_API + searchQuery
     );
@@ -90,4 +98,37 @@ export default Header;
 *  key - iph
   -  re-render component
   - useEffect()
+*/
+
+/*
+2) With Debouncing
+
+* key - i
+  - render component
+  - useEffect()
+    - start timer => make API call after 2000ms
+
+*  key - ip
+  - destroy component(useEffect return method)
+  - re-render component
+  - useEffect()
+    - start new timer => make API call after 2000ms
+
+*  key - iph
+  - destroy component(useEffect return method)
+  - re-render component
+  - useEffect()
+*/
+
+// Explanation: when user typing in search bar.
+/*
+ type - i
+ search = 'i'
+ Timer is setted up to make API call after 2000ms.
+
+ type - p
+ search = 'ip'
+ re-render starts. it runs "Cleanup function" first and then re-rendering starts.
+ -> if user typed before 2000ms is completed.  Cleanup runs, Timer is Cleared, No API call happens.
+ -> if user Not-typed or typed after the 2000ms is completed. Timer is completed 2000ms, API call happens.
 */
