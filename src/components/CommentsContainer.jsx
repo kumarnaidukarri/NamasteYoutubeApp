@@ -69,7 +69,19 @@ const CommentsList = (props) => {
 
   // Disclaimer: Don't use indexs as keys
   return comments.map((comment, index) => (
-    <Comment data={comment} key={index} />
+    <div key={index}>
+      {/* commentcard */}
+      <Comment data={comment} />
+      {/* commentcard Replies */}
+      <div className="replies-container  ml-5 pl-5 border-l border-black">
+        {/*
+         using "RECURSION",
+         we make repliesList from commentsList component reuse.
+         'N-level nesting replies' Important
+        */}
+        <CommentsList comments={comment.replies} />
+      </div>
+    </div>
   ));
 };
 
