@@ -1,28 +1,51 @@
 // Header component
 // it contains Hamberger Menuicon button, SearchBar, User icon
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/store/sidebarMenuSlice.js";
 import { useEffect, useState } from "react";
 
 import { YOUTUBE_SEARCH_SUGGESTIONS_API } from "../utils/constants.js";
+import { cacheResults } from "../utils/store/searchSlice.js";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState(""); // local state variable
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const dispatch = useDispatch(); // hook to dispatch an action
+  // useSelector gives access to the State of search slice and "Subscribes it".
+  const searchCache = useSelector((appStore) => appStore.search); // {name: suggestionsArr}
+  console.log("search cache:-", searchCache);
+  /*
+  searchCache = {
+    "iphone" : ["iphone 11","iphone 14"]
+  }
+
+  searchQuery = iphone
+  */
+
   // useEffect calls whenever 'searchQuery' state variable changes.
   useEffect(() => {
     // API call - make after every key press
     // but, if Difference between 2 API calls is lessthan 2000ms
     // Decline the API call
-    const timer = setTimeout(() => getSearchSuggestions(), 300);
+    const timer = setTimeout(() => {
+      // if Cache consists suggestions data of our searchQuery. No API call
+      if (searchCache[searchQuery]) {
+        setSuggestions(searchCache[searchQuery]);
+      }
+      // if Cache don't have suggestion data.
+      // Make an API call, get suggestion data, Update in the Cache.
+      else {
+        getSearchSuggestions();
+      }
+    }, 300);
 
     // cleanup func runs before 'Re-render'.
     return () => {
       // clears the timer
-      console.log("Cleanup fn executed. Timer is cleared");
+      // console.log("Cleanup fn executed. Timer is cleared");
       clearTimeout(timer);
     };
   }, [searchQuery]);
@@ -34,12 +57,14 @@ const Header = () => {
       YOUTUBE_SEARCH_SUGGESTIONS_API + searchQuery
     );
     const jsonData = await responseObj.json();
-    console.log(jsonData);
+    // console.log(jsonData);
 
     setSuggestions(jsonData[1]); // Updates state
-  };
 
-  const dispatch = useDispatch(); // hook to dispatch an action
+    // Update the Cache
+    dispatch(cacheResults({ [searchQuery]: jsonData[1] })); // { [searchQueryVariable] : suggestsArrData }
+    // { "iph" : ["iphone","iphone 12","iphone 15","iphone 15 pro"] }
+  };
 
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());

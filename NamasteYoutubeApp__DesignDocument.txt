@@ -26,6 +26,11 @@ Body
 // rafc - shortcut generates react component in file
 
 
+
+SearchBar - Suggestion list by get data from API calling.
+
+Redux Caching System - to store Search Suggestions list data.
+
 ------------------------------
 // Free Youtube API
 /*
@@ -35,5 +40,10 @@ YOUTUBE_VIDEOS_API =
 "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&key=[YOUR_API_KEY]";
 2. Search, Get for "Youtube API Key Auth" in google chrome, Go to credentials -> create crediantial -> copy 'API key'
 3. Api URL + Api Key
+*/
+
+// Free Youtube Search Suggestion List API
+/*const YOUTUBE_SEARCH_SUGGESTIONS_API =
+  "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=";
 */
 
