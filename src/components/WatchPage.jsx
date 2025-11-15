@@ -8,6 +8,7 @@ import { closeMenu } from "../utils/store/sidebarMenuSlice"; // reducer function
 
 // my components
 import CommentsContainer from "./CommentsContainer.jsx";
+import LiveChat from "./LiveChat.jsx";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams(); // hook
@@ -20,18 +21,23 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col">
-      <div className="Watch-Page  px-5">
-        <iframe
-          width="1200"
-          height="600"
-          src={"https://www.youtube.com/embed/" + searchParams.get("v")}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+    <div className="flex flex-col  w-full">
+      <div className="Watch-Page  px-5 flex">
+        <div className="video-player-container">
+          <iframe
+            width="1200"
+            height="600"
+            src={"https://www.youtube.com/embed/" + searchParams.get("v")}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+        <div className="live-chat-container  w-full">
+          <LiveChat />
+        </div>
       </div>
 
       <CommentsContainer />
