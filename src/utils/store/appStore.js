@@ -2,9 +2,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sidebarMenuReducer from "./sidebarMenuSlice.js";
 import searchSliceReducer from "./searchSlice.js";
+import chatSliceReducer from "./chatSlice.js";
 
 const appStore = configureStore({
-  reducer: { sidebarMenu: sidebarMenuReducer, search: searchSliceReducer },
+  reducer: {
+    sidebarMenu: sidebarMenuReducer,
+    search: searchSliceReducer,
+    chat: chatSliceReducer,
+  },
 }); // creates a store with given Slices
 
 export default appStore;

@@ -34,7 +34,7 @@ Redux Caching System - to store Search Suggestions list data.
 CommentsContainer - CommentsContainer, CommentsList, Comment, CommentReplies N-level using "Recursion" concept.
 
 Live Chat Feature - LiveChat, ChatMessage components.
-                    * API Polling
+                    * API Polling, * Redux Slice
 
 ------------------------------
 // Free Youtube API

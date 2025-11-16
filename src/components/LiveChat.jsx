@@ -46,3 +46,5 @@ there are 2 Ways to handle Live data :-
     for every 3 seconds, frontend checks backend for new data.
     Ex: Gmail app
 */
+
+// Redux Store for storing Live Chat.
