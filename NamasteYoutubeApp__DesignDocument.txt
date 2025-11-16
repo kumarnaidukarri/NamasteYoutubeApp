@@ -36,6 +36,8 @@ CommentsContainer - CommentsContainer, CommentsList, Comment, CommentReplies N-l
 Live Chat Feature - LiveChat, ChatMessage components.
                     * API Polling, * Redux Slice
 
+Feature - Adding Chat Message using Input box.
+
 ------------------------------
 // Free Youtube API
 /*
