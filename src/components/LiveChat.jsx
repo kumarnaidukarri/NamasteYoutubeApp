@@ -23,17 +23,17 @@ const LiveChat = () => {
       dispatch(
         addMessage({
           name: generateRandomName(),
-          message: generateRandomMessage() + "😊🚀",
+          message: generateRandomMessage() + " 🚀",
         })
       );
-    }, 2000);
+    }, 1000);
 
     // Cleanup fn
     return () => clearInterval(i);
   }, []);
 
   return (
-    <div className="w-full h-[600px] ml-2 p-2 bg-slate-100 border border-black rounded-lg overflow-y-scroll">
+    <div className="w-full h-[600px] ml-2 p-2 bg-slate-100 border border-black rounded-lg overflow-y-scroll  flex flex-col-reverse">
       {/* Iterating on ChatMessages data from redux store */}
       {chatMessages.map((cm, index) => {
         // Disclaimer: Don't use indexes as keys
@@ -43,10 +43,16 @@ const LiveChat = () => {
   );
 };
 /*
-      <ChatMessage name="Kumar" message="This is one of the greatest trailer" />
-      <ChatMessage name="User 1" message="this game have good visuals" />
-      <ChatMessage name="User 2" message="waiting for this game to launch" />
-      <ChatMessage name="User 3" message="Interesting story gameplay" /> */
+  <ChatMessage name="Kumar" message="This is one of the greatest trailer" />
+  <ChatMessage name="User 1" message="this game have good visuals" />
+  <ChatMessage name="User 2" message="waiting for this game to launch" />
+  <ChatMessage name="User 3" message="Interesting story gameplay" />
+*/
+
+/*
+ flex, flex-col-reverse, Unshift() method to 'add items' at starting of the Array.
+ * so, latest chat comment gets added on starting top of the Chat UI container.
+*/
 export default LiveChat;
 
 // Live Chat Feature:-
