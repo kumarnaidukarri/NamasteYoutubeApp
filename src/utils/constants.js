@@ -18,7 +18,17 @@ const YOUTUBE_VIDEOS_API_URL =
 const YOUTUBE_SEARCH_SUGGESTIONS_API =
   "http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q=";
 
-export { YOUTUBE_VIDEOS_API_URL, YOUTUBE_SEARCH_SUGGESTIONS_API };
+// Fix future Slow UI caused due to More 'Chat Message' items in Array.
+/* when LIVE CHAT Messages reaches 25 messages.
+   if a new message comes in, the Oldest message is removed before New one is added.
+*/
+const LIVE_CHAT_COUNT = 25;
+
+export {
+  YOUTUBE_VIDEOS_API_URL,
+  YOUTUBE_SEARCH_SUGGESTIONS_API,
+  LIVE_CHAT_COUNT,
+};
 
 // read more: https://developers.google.com/youtube/v3/docs/videos/list
 /*
