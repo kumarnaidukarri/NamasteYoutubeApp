@@ -1,9 +1,21 @@
 // LiveChat component contains 'Live Chatting Messages'.
 
+import { useEffect } from "react";
+
 // my components
 import ChatMessage from "./ChatMessage.jsx";
 
 const LiveChat = () => {
+  useEffect(() => {
+    const i = setInterval(() => {
+      // "API Polling" - poll for every 2 secs
+      console.log("API Polling");
+    }, 2000);
+
+    // Cleanup fn
+    return () => clearInterval(i);
+  }, []);
+
   return (
     <div className="w-full h-[600px] ml-2 p-2 bg-slate-100 border border-black rounded-lg">
       <ChatMessage name="Kumar" message="This is one of the greatest trailer" />
