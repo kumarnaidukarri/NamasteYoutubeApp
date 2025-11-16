@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../utils/store/chatSlice.js";
 
+import { generateRandomName, generateRandomMessage } from "../utils/helper.js";
+
 // my components
 import ChatMessage from "./ChatMessage.jsx";
 
@@ -20,8 +22,8 @@ const LiveChat = () => {
       // dispatch an 'Action'
       dispatch(
         addMessage({
-          name: "Kumar",
-          message: "this morning sunshine live gives great experience",
+          name: generateRandomName(),
+          message: generateRandomMessage() + "😊🚀",
         })
       );
     }, 2000);
