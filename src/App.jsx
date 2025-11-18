@@ -14,6 +14,7 @@ import WatchPage from "./components/WatchPage.jsx";
 // redux store imports
 import { Provider } from "react-redux";
 import appStore from "./utils/store/appStore.js";
+import Demo from "./components/Demo.jsx";
 
 // router config object
 const appRouter = createBrowserRouter([
@@ -23,6 +24,7 @@ const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <MainContainer /> },
       { path: "/watch", element: <WatchPage /> },
+      { path: "/demo", element: <Demo /> },
     ],
   },
 ]);
