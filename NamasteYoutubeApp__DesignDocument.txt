@@ -40,6 +40,8 @@ Feature - Adding Chat Message using Input box.
 
 The END...
 
+Hooks :- useMemo(), useCallback(), useRef()
+
 ------------------------------
 // Free Youtube API
 /*
